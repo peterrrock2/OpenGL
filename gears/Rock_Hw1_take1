@@ -1,0 +1,51 @@
+Peter Rock
+13 September 2018
+Hw1 Gears
+
+1) 100x100 FPS ~2100
+   300x300 FPS ~1050
+   Full    FPS ~180
+
+   The decrease in frame rate with increased window size is to be expected. When the gears
+   program is running, it has to calculate the color of each pixel as the animation moves.
+   The larger the frame size, the greater the computational load on the computer. In the
+   case of the 100x100 screen, we know that the computer only had to keep track 10,000 pixels
+   whereas in the 300x300 case the computer needed to keep track of 90,000 pixels which is
+   nearly 10 times as much. After plotting the data for frame rates between 100 and 1100
+   with step size of 100, I was able to determine that the decline of the frame rate was
+   roughly logarithmic.
+
+2) There are many reasons that the frame rate of the gears program could be different on
+   different systems. These limitations tend to fall into three categories: CPU limited,
+   geometry limited, and fill limited.
+
+   If the animation were to be CPU limited, then we would expect to see the strain on the
+   CPU in the resources monitor. However, upon inspection, it appears that the gears
+   program only takes up a small fraction of the CPU or the RAM resources on the computer.
+
+   Another possible explanation for the the disparity in frame rate is that the program is 
+   geometry limited. There are three gear objects in this animation each of which continually
+   undergoes a rotation transformation. Each time this transformation is applied, the GPU
+   needs to calculate how the operation behaves on each of the vertices in the gears. For
+   some systems, such as my laptop, this operation is happered by the fact that the GPU is 
+   integrated into the CPU, and, therefore, is unable to devote a large amount of resources
+   to the computation of the rotation transformations since the majority of the processor is
+   to be reserved for running the OS. On larger computers with dedicated graphics cards (like 
+   my desktop), however, there is no such constraint on the resources.
+
+   The last possible souce of the frame rate disparity would be that the gears program is 
+   fill limited. This limitation refers to how quickly the graphics hardware fills in the
+   pixels in the scene.
+
+   
+
+   Ok... so is it geometry or fill limited. On the desktop it looks fill limited, but on my
+   laptop it appears to be geometry limited.
+   
+
+
+3) 4 hours.
+
+Sources:
+
+https://www.opengl.org/archives/resources/faq/technical/performance.htm

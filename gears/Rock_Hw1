@@ -1,0 +1,47 @@
+Peter Rock
+13 September 2018
+Hw1 Gears
+
+1) 100x100 FPS ~2100
+   300x300 FPS ~1050
+   Full    FPS ~180
+
+   The decrease in frame rate with increased window size is to be expected. When the gears
+   program is running, it has to calculate the color of each pixel as the animation moves.
+   The larger the frame size, the greater the computational load on the computer. In the
+   case of the 100x100 screen, we know that the computer only had to keep track 10,000 pixels
+   whereas in the 300x300 case the computer needed to keep track of 90,000 pixels which is
+   nearly 10 times as much. After plotting the data for frame rates between 100 and 1100
+   with step size of 100, I was able to determine that the decline of the frame rate was
+   roughly logarithmic. This was slightly surprising, as I expected the decrease to be quadratic
+   considering that the number of pixels increases quadratically.
+
+
+2) The discrepancy in a frame rate of 60 or 72 compared to a frame rate in the thousands is
+   dependent on what graphics hardware a computer is running and if the Vertical Synchronization
+   (V-sync) is turned on. When this option is turned on, the video card in the system is
+   prevented from executing anything until the monitor finishes refreshing. Since monitors tend
+   to run at 60-72 Hz (or above for high-end monitors), the frame rate with V-sync turned on
+   will be the same. If V-sync is turned off, the graphics card will refresh the scene according
+   to the settings on the graphics card. In the computer used above, V-sync was turned off which
+   resulted in the high frame rate of 2100 FPS.
+
+   Why would we want to turn on V-sync? Well, V-sync both helps the system manage its resources
+   effectively and it helps prevent screen tearing. Since the computer monitor only refreshes
+   every 60th of a second, it normally isn't worth the cost of refreshing the scene a bunch of
+   extra times. By limiting the rate that the graphics card refreshes the scene to the rate
+   that the screen refreshes, the computer stops using resources to generate scenes that
+   will never be viewed by the user, thus making the system more efficient. V-sync also
+   helps limit screen tearing. Tearing tends to happen when the refresh rate of the scene is
+   slightly faster than the refresh rate of the monitor, say 100 FPS. When this happens, the
+   monitor and the graphics card can get out of sync and end up in a situation where the scene
+   is refreshed slightly before the monitor is which causes the monitor to have to wait until
+   the scene is drawn again before it can be presented on the screen.
+
+
+3) 5 hours. I went down a bit of a rabbit hole looking at CPU, geometry, and fill limited
+   processes.
+
+Sources:
+
+Office Hours

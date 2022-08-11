@@ -1,0 +1,27 @@
+// while(w<2*Math.PI+dw)
+// {
+//     v=0.0f;
+//     gl.glBegin(GL.GL_TRIANGLE_STRIP);
+//     // inner loop
+//     while(v<2*Math.PI+dv)
+//     {
+//         gl.glNormal3d(
+//                 (R+rr*Math.cos(v))*Math.cos(w)-(R+r*Math.cos(v))*Math.cos(w),
+//                 (R+rr*Math.cos(v))*Math.sin(w)-(R+r*Math.cos(v))*Math.sin(w),
+//                 (rr*Math.sin(v)-r*Math.sin(v)));
+//         gl.glVertex3d((R+r*Math.cos(v))*Math.cos(w),
+//                    (R+r*Math.cos(v))*Math.sin(w),
+//                     r*Math.sin(v));
+//         gl.glNormal3d(
+//                 (R+rr*Math.cos(v+dv))*Math.cos(w+dw)-(R+r*Math.cos(v+dv))*Math.cos(w+dw),
+//                 (R+rr*Math.cos(v+dv))*Math.sin(w+dw)-(R+r*Math.cos(v+dv))*Math.sin(w+dw),
+//                 rr*Math.sin(v+dv)-r*Math.sin(v+dv));
+//         gl.glVertex3d((R+r*Math.cos(v+dv))*Math.cos(w+dw),
+//                    (R+r*Math.cos(v+dv))*Math.sin(w+dw),
+//                     r*Math.sin(v+dv));
+//         v+=dv;
+//     } // inner loop
+//     gl.glEnd();
+//     w+=dw;
+//     } //outer loop
+// }

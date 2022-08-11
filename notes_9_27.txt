@@ -1,0 +1,39 @@
+===================
+DRAWING 3D OBJECTS
+===================
+
+for display function we can use 
+    glVertex4d(x[i],y[i],z[i],dim)
+    
+        -> this causes opengl to divide by the dimension in the last coordinate to fit box
+        
+FOV defines the vertical angle of viewing in vertical direction
+
+in glOrtho th and ph rotates the world
+
+    glPerspective changes the camera position and dim changes how close or far from the
+    scene you are
+
+    gluPerspective(fov, asp, near, far)
+        -> need the ration of far/near to 
+        -> using dim/4 for near and 4*dim for far means that you always loose 16bits of information
+           in the z-buffer
+           
+we want to only manipulate the GL_PERSPECTIVE matrix once and then manipulate the model view matrix
+for the rest of our manipuations
+
+**REMEMBER TO KEEP POLYGONS CONVEX WHEN DRAWING THINGS**
+
+for drawing grandma's house we want to use glPolygonOffset(factor, units)
+    -> Prevents z-fighting
+    -> Typically glPolygonOffset(1,1) works
+        -> These can stack so if I have two things I would use 
+                glPolygonOffset(2,2)
+           then
+                glPolygonOffset(1,1)
+           (see ex10)
+    -> We will use glEnable(GL_POLYGON_OFFSET_FILL)
+    
+    
+**REMEMBER TO PUT ERRCHECK AT END OF DISPLAY FUNCTION**
+
